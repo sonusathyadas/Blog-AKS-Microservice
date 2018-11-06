@@ -1,0 +1,23 @@
+Blog Title:
+    Azure Container Registry now generally available
+
+Blog Content:
+
+<div>
+<p>Companies of all sizes are embracing containers as a fast and portable way to lift, shift and modernize into cloud-native apps. As part of this process, customers need a way to store and manage images for all types of container deployments. In November, we announced the preview of Azure Container Registry, which enables developers to create and maintain Azure container registries to store and manage private Docker container images.
+</p>
+<p>
+On March 27th Azure Container Registry became generally available, supporting a network-close, private registry for Linux and Windows container images. Azure Container Registry integrates well with orchestrators hosted in Azure Container Service, including Docker Swarm, Kubernetes and DC/OS as well as other Azure Services including Service Fabric and Azure App Services. Customers can benefit from using familiar tooling capable of working with the open source Docker Registry v2. Learn more by watching this Azure Container Registry GA video.
+Building on the November Preview, we’ve added the following features and capabilities:
+</p>
+<p>
+<ul>
+	<li>Availability in 23 regions, with a global footprint (with more coming)</li>
+	<li>Repositories, tag, and manifest listing in the Azure Portal</li>
+	<li>Dual-key password providing key rotation</li>
+	<li>Nested level repositories</li>
+	<li>Azure CLI 2.0 support</li>
+</ul>
+</p>
+
+</div>

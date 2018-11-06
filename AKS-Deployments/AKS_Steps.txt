@@ -1,0 +1,37 @@
+Create Resource Group
+az group create -n <RESOURCEGROUP_NAME> -l Southeastasia
+-----------------------------
+Create AKS Cluster with 2 node
+az aks create -g <RESOURCEGROUP_NAME> --name <AKS_CLUSTER_NAME> --node-count 2 --generate-ssh-keys
+
+Install Kubectl command
+az aks install-cli
+
+Download the credentials
+az aks get-credentials -g <RESOURCEGROUP_NAME> -n <AKS_CLUSTER_NAME>
+
+List the AKS nodes
+kubectl get nodes
+
+Open Kubernetes Dashboard
+az aks  browse -g <RESOURCEGROUP_NAME>  -n <AKS_CLUSTER_NAME>
+------------------------------
+If Dashboard shows error for regarding permissions
+Create a yaml file such as "dashboard-admin.yaml" and add the following content in it
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: kubernetes-dashboard
+  labels:
+    k8s-app: kubernetes-dashboard
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: kubernetes-dashboard
+  namespace: kube-system
+
+Run the following command to provide access to dashboard
+kubectl create -f dashboard-admin.yaml

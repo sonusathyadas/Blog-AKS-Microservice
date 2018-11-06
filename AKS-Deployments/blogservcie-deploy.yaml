@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogservice-deploy
+  labels:
+    app: blogservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blogservice
+  template:
+    metadata:
+      labels:
+        app: blogservice
+    spec:
+      containers:
+      - name: blogservice
+        image: sonusathyadas/blogservice:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production        
+        - name: Jwt__Key
+          value: SomeSampleKeyWhichisLarge
+        - name: Jwt__Issuer
+          value: http://userservice/      

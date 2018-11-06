@@ -1,0 +1,46 @@
+version : "3"
+
+services:  
+  # Identity Service
+  bloguserservice:
+    build: ./BlogUserService/BlogUserService/
+    container_name: "identityservice"
+    networks:
+      - backend
+    ports:
+      - "7000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT:${ASPNETCORE_ENVIRONMENT}
+      - Jwt:Key=${JWT_KEY}
+      - Jwt:Issuer=http://bloguserservice/
+  # Blog API Service 
+  blogservice:
+    build: ./BlogService/BlogService
+    container_name: "blogservice"
+    networks:
+      - backend
+    ports:
+      - "7001:80"
+    depends_on:
+      - bloguserservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT:${ASPNETCORE_ENVIRONMENT}
+      - Jwt:Key=${JWT_KEY}
+      - Jwt:Issuer=http://bloguserservice/
+  # Angular Client
+  blogui:
+    build: ./SynBlogUI/SynBlogUI
+    container_name: "blogui"
+    networks:
+      - frontend
+    ports:
+      - "7002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT:${ASPNETCORE_ENVIRONMENT}
+      - UserServiceUrl:${USER_SERVICE_URL}
+      - BlogServiceUrl:${BLOG_SERVICE_URL}
+networks: 
+  backend:
+    driver: bridge
+  frontend:
+    driver: bridge

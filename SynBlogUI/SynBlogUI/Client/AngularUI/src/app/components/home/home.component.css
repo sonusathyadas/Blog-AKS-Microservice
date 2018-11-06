@@ -1,0 +1,9 @@
+.blog-title{
+    color:gray
+}
+.content {
+    max-height: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

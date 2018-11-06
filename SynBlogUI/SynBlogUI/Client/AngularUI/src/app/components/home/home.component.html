@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>Blogs</h2>
+        <div *ngFor="let blog of blogs" class="thumbnail">
+            <h4 class="blog-title">
+                <a [routerLink]="['/blogs',blog.id]">
+                {{blog.title}}
+            </a>
+            </h4>
+            <div class="content" [innerHTML]="blog.content|safeHTML"></div>
+            <hr/>
+            <h5>Posted By:<strong>{{blog.author}}</strong> on <strong>{{blog.postedDate}}</strong></h5>
+        </div>
+    </div>
+</div>

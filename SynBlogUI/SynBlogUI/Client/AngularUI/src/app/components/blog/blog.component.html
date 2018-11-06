@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="thumbnail" *ngIf="blog;else noBlogContent">
+            <h2 class="blog-title">{{blog.title}} </h2>
+            <div [innerHTML]="blog.content|safeHTML"></div>
+            <hr />
+            <h5>Posted By:<strong>{{blog.author}}</strong> on <strong>{{blog.postedDate}}</strong></h5>
+        </div>
+    </div>
+    <ng-template #noBlogContent>
+        <h4>Loading content...</h4>
+    </ng-template>
+</div>

@@ -1,0 +1,25 @@
+Blog Title:
+    Orchestrating production-grade workloads with Azure Kubernetes Service
+
+Blog Content:
+
+<div>
+<p>Happy Birthday Kubernetes! In the short three years that Kubernetes has been around, it has become the industry standard for orchestration of containerized workloads. In Azure, we have spent the last three years helping customers run Kubernetes in the cloud. As much as Kubernetes simplifies the task of orchestration, there’s plenty of setup and management that needs to take place for you to take full advantage of Kubernetes. This is where Azure Kubernetes Service (AKS) comes in. With Microsoft’s unique knowledge of the requirements of an enterprise, and our heritage of empowering developers, this managed service takes care of many of the complexities and delivers the best Kubernetes experience in the cloud.
+</p>
+<p>
+In this blog post, I will dig into the top scenarios that Azure customers are building on Azure Kubernetes Service. After that, we will blow out the candles and have some cake.
+</p>
+<p>
+If you are new to AKS, check out the <a href="https://azure.microsoft.com/en-us/services/kubernetes-service/">Azure Kubernetes Service </a> page and this <a href="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Kubernetes-Service-AKS-GA?term=AKS&lang-en=true">video </a>to learn more.
+</p>
+
+<h4>Lift and shift to containers</h4>
+<p>
+Organizations typically want to move to the cloud quickly and it is often not possible to re-write applications to take full advantage of cloud-native features right from the beginning. Containerizing applications makes it much simpler to modernize your apps and move to the cloud in a frictionless manner while adding benefits such as CI/CD automation, auto-scale, security, monitoring, and much more. It also allows for simplified management at the data layer by taking advantage of Azure’s PaaS based databases such as Azure CosmosDB or Azure’s managed PostgreSQL Service.
+</p>
+<p>
+For example, I worked with a customer in the manufacturing industry who had many legacy Java applications sprawled throughout a high cost datacenter. They were often unable to scale these applications to meet customer demand and updates were cumbersome and unreliable. With Azure Kubernetes Service and containers, they were able to host many of these applications in a single managed service. This led to a much higher reliability and the ability to ship new capabilities much more frequently.
+</p>
+<p>The following diagram visually illustrates a typical lift and shift approach involving AKS. To get started with AKS, check out the following <a href="https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app">tutorial.</a></p>
+<img src="https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/37f7555f-52c2-4dad-84d0-9cb74488e26b.png"/>
+</div>

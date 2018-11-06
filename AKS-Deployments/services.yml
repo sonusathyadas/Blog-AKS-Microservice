@@ -1,0 +1,39 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: userservice
+spec:
+  selector:
+    app: userservice
+  ports:
+  - protocol: TCP
+    port: 7000
+    targetPort: 80
+  type: LoadBalancer
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: blogservice
+spec:
+  selector:
+    app: blogservice
+  ports:
+  - protocol: TCP
+    port: 7001
+    targetPort: 80
+  type: LoadBalancer
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: uiservice
+spec:
+  selector:
+    app: uiservice
+  ports:
+  - protocol: TCP
+    port: 7002
+    targetPort: 80
+  type: LoadBalancer
+

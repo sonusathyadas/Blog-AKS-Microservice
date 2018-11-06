@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h2>Register</h2>
+        
+        <div class="alert" *ngIf="submitted && !success" [ngClass]="{'alert-danger':!success}">Failed</div>
+        <div class="alert" *ngIf="submitted && success" [ngClass]="{'alert-success':success}">Success</div>
+        <form [formGroup]="form"  (submit)="register()">
+            <div class="form-group">
+                <label class="control-label">First name</label>
+                <input type="text" class="form-control" name="FirstName" formControlName="FirstName" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Last name</label>
+                <input type="text" class="form-control" name="LastName" formControlName="LastName" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input type="email" class="form-control" name="Email" formControlName="Email" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Password</label>
+                <input type="password" class="form-control" name="Password" formControlName="Password" />
+            </div>
+            <button class="btn btn-primary" type="submit" name="btn">
+                <span class="glyphicon glyphicon-user"></span> Register
+            </button>
+        </form>
+    </div>
+</div>

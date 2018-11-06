@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: synblog-deploy
+  labels:
+    app: blogclient
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uiservice
+  template:
+    metadata:
+      labels:
+        app: uiservice
+    spec:
+      containers:
+      - name: synblog
+        image: sonusathyadas/synblog:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production
+        - name: UserServiceUrl
+          value: <PIP address of BlogUserService>
+        - name: BlogServiceUrl
+          value: <PIP address of BlogService>     
